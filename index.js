@@ -7,13 +7,14 @@ module.exports = function(content) {
 };
 function cleanRedundantCode(str){
     if(typeof str === 'string'){
-        str = str.trim();                              // left & right space
-        str = str.replace(/<!-[\s\S]*?-->/g, '');      // html-comments  <!-- xxx -->
-        str = str.replace(/{![\s\S]*?!}/g, '');        // regular-comments  {! xxx !}
-        str = str.replace(/\r|\n|\s+(?=[<{])/g, '');   // \r\n space before < & {
-        str = str.replace(/[}>]\s+/g, function(value){ // \r\n space after > & }
-            return typeof(value)==='string' ? value.substr(0, 1) : '';
+        var onSpace = ' ';
+        str = str.replace(/<!-[\s\S]*?-->/g, '');            // html-comments  <!-- xxx -->
+        str = str.replace(/{![\s\S]*?!}/g, '');              // regular-comments  {! xxx !}
+        str = str.replace(/[\r\n]|\s+(?=[<{])/g, onSpace);   // \r\n space before < & {
+        str = str.replace(/[}>]\s+/g, function(value){       // \r\n space after > & {
+            return typeof value === 'string' ? value.substr(0, 1) + onSpace : '';
         });
+        str = str.trim();                                    // left & right space
     }
     return str;
 };

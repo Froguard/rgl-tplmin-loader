@@ -1,6 +1,6 @@
 {
   "name": "rgl-tplmin-loader",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "froguard",
   "description": "regularjs`s text-template compress loader module for webpack",
   "license": "MIT"
