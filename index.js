@@ -18,17 +18,17 @@ function cleanRedundantCode(str){
         // 暴力全局替换\s，副作用：内容里面有带空格或回车的字符串会被替换截掉
         str = str.replace(/[\s]{2,}/g, SINGLE_SPACE);
 
-        // <abc>,<abc/> 左边
-        str = str.replace(/[\s]{2,}(?=<\w+(\s[\s\S]*?)*?\/?>)/g, SINGLE_SPACE);
-        // </abc> 左边
-        str = str.replace(/[\s]{2,}(?=<\/\w+>)/g, SINGLE_SPACE);
-
-        // js并不支持'后行断言'(?<=condition)这种写法，这里只能采用callback函数来弥补
-
-        // <abc>,</abc>,<abc/>,/> 右边
-        str = str.replace(/((?:<\/?\w+>)|(?:<\w+\/>)|(?:\/>))[\s]{2,}/g, function($0, $1){
-            return ($1 ? ($ + SINGLE_SPACE) : $0);
-        });
+        // // <abc>,<abc/> 左边
+        // str = str.replace(/[\s]{2,}(?=<\w+(\s[\s\S]*?)*?\/?>)/g, SINGLE_SPACE);
+        // // </abc> 左边
+        // str = str.replace(/[\s]{2,}(?=<\/\w+>)/g, SINGLE_SPACE);
+        //
+        // // js并不支持'后行断言'(?<=condition)这种写法，这里只能采用callback函数来弥补
+        //
+        // // <abc>,</abc>,<abc/>,/> 右边
+        // str = str.replace(/((?:<\/?\w+>)|(?:<\w+\/>)|(?:\/>))[\s]{2,}/g, function($0, $1){
+        //     return ($1 ? ($ + SINGLE_SPACE) : $0);
+        // });
 
         // // 花括号左右
         // str = str.replace(/[\s]+(?=(}|\{))/g, SINGLE_SPACE); // 左空格
