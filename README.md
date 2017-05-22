@@ -1,8 +1,12 @@
 
-- A webpack loader for [regularjs](https://github.com/regularjs/regular)'s component-template file
-- **Neither <script> nor <style> will be resolved or parsed or minified in this loader**
-- Just only minify the tpl file's content-text in a simple way, remove redundant code(the special chars like space, enter between tags).
-- **no parse, no render**.(It is **different** from [regular-loader](https://www.npmjs.com/package/regular-loader) ), just string convert
+- A webpack loader for [regularjs](https://github.com/regularjs/regular) 's component-template file.
+
+- **Neither** &lt;script&gt; **nor** &lt;style&gt; will be resolved or parsed or minified in this loader
+
+- Just **only** minify the tpl file's content-text in a simple way, remove redundant code(the special chars like space, enter between tags).
+
+- **no parse, no render**. It is **different** from [regular-loader](https://www.npmjs.com/package/regular-loader) , just string convert
+
 
 ## Installation
 
@@ -30,6 +34,34 @@ module.exports = {
   }
 }
 ```
+
+> with happypack
+
+    ```js
+	module.exports = {
+	  module: {
+		rules: [
+		  {
+			test: /\.rgl$/, // or /\.html$/
+			use: 'happypack/loader?id=rglmin'
+		  }
+		]
+	  }
+	},
+	plugins: [
+		new HappyPack({
+			id: 'rglmin',
+			threadPool: happyThreadPool,
+			loaders: ['rgl-tplmin-loader?' + JSON.stringify({
+				minimize: true,
+				comments: {
+					html: false,
+					rgl: false
+				}
+			})]
+		})
+	]
+	```
 
 **In your application**
 
