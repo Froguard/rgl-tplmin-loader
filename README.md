@@ -1,3 +1,11 @@
+# rgl-tplmin-loader
+
+[![version](https://img.shields.io/npm/v/rgl-tplmin-loader.svg "version")](https://www.npmjs.com/package/rgl-tplmin-loader)&nbsp;
+
+[![GitHub issues](https://img.shields.io/github/issues/Froguard/rgl-tplmin-loader.svg)](https://github.com/Froguard/rgl-tplmin-loader/issues?q=is%3Aopen+is%3Aissue)&nbsp;
+
+[![Github licences](https://img.shields.io/github/license/Froguard/rgl-tplmin-loader.svg)](https://github.com/Froguard/rgl-tplmin-loader/blob/master/LICENSE)
+
 
 - A webpack loader for [regularjs](https://github.com/regularjs/regular) 's component-template file.
 
