@@ -37,31 +37,31 @@ module.exports = {
 
 > with happypack
 
-    ```js
-	module.exports = {
-	  module: {
-		rules: [
-		  {
-			test: /\.rgl$/, // or /\.html$/
-			use: 'happypack/loader?id=rglmin'
-		  }
-		]
+```js
+module.exports = {
+  module: {
+	rules: [
+	  {
+		test: /\.rgl$/, // or /\.html$/
+		use: 'happypack/loader?id=rglmin'
 	  }
-	},
-	plugins: [
-		new HappyPack({
-			id: 'rglmin',
-			threadPool: happyThreadPool,
-			loaders: ['rgl-tplmin-loader?' + JSON.stringify({
-				minimize: true,
-				comments: {
-					html: false,
-					rgl: false
-				}
-			})]
-		})
 	]
-	```
+  }
+},
+plugins: [
+	new HappyPack({
+		id: 'rglmin',
+		threadPool: happyThreadPool,
+		loaders: ['rgl-tplmin-loader?' + JSON.stringify({
+			minimize: true,
+			comments: {
+				html: false,
+				rgl: false
+			}
+		})]
+	})
+]
+```
 
 **In your application**
 
