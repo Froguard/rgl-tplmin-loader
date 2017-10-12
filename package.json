@@ -1,6 +1,6 @@
 {
   "name": "rgl-tplmin-loader",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "froguard",
   "description": "regularjs`s text-template compress loader module for webpack",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "loader-utils": "^1.1.0"
   },
   "bugs": {
-    "url": "https://github.com/Froguard/tinylrs/issues"
+    "url": "https://github.com/Froguard/rgl-tplmin-loader/issues"
   },
   "homepage": "https://github.com/Froguard/rgl-tplmin-loader",
   "repository": {
