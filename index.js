@@ -30,7 +30,8 @@ function cleanRedundantCode(str, opts){
         str = !rglComments ? str.replace(/{![\s\S]*?!}/g, EMPTY) : str;
 
         // 暴力全局替换\s，副作用：内容里面有带空格或回车的字符串会被替换截掉
-        str = str.replace(/[\s]{2,}/g, SINGLE_SPACE);
+        // str = str.replace(/[\s]{2,}/g, SINGLE_SPACE);
+        str = str.replace(/[\f\t\v]{2,}/g, SINGLE_SPACE);
 
         // // <abc>,<abc/> 左边
         // str = str.replace(/[\s]{2,}(?=<\w+(\s[\s\S]*?)*?\/?>)/g, SINGLE_SPACE);
